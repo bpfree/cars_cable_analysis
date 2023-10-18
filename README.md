@@ -1,2 +1,2 @@
-# ncar_scar_cable_analysis
+# North Carolina and South Carolina Cable Prioritization Analysis
 Cable prioritization analysis for North Carolina and South Carolina
