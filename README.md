@@ -21,8 +21,6 @@ The Wind Team within NCCOS is appointed by BOEM to provide guidance on cables th
 
 ***Note for PC users:*** The code was written on a Mac so to run the scripts replace "/" in the pathnames for directories with two "\\".
 
-Please contact Brian Free ([brian.free\@noaa.gov](mailto:brian.free@noaa.gov)) with any questions.
-
 #### **Data sources**
 
 ##### *Generic Data*
