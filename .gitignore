@@ -2,3 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Ignore code
+## Miscellaneous code
+code/x_miscellaneous_code
+
+# Tentative analysis
+code/tentative_analysis
