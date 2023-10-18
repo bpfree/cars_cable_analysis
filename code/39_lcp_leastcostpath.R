@@ -1,5 +1,5 @@
 ####################################################
-### 38. Least Cost Path -- leastcostpath package ###
+### 39. Least Cost Path -- leastcostpath package ###
 ####################################################
 
 # Clear environment

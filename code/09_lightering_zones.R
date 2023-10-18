@@ -1,5 +1,5 @@
 ###########################
-### 8. Lightering Zones ###
+### 9. Lightering Zones ###
 ###########################
 
 # Clear environment

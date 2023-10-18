@@ -1,5 +1,5 @@
 ################################
-### 4. Bathymetry -- terra() ###
+### 5. Bathymetry -- terra() ###
 ################################
 
 # Clear environment

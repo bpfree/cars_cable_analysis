@@ -1,5 +1,5 @@
 ############################
-### 2. Seagrass Habitats ###
+### 3. Seagrass Habitats ###
 ############################
 
 # Clear environment
