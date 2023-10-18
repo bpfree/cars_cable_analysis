@@ -3,9 +3,9 @@
 The Wind Team within NCCOS is appointed by BOEM to provide guidance on cables that will connect the offshore wind areas in federal waters off the coast of North Carolina and South Carolina.
 
 **Points of contact**
-* **Region manager:** [Jennifer Wright](jennifer.wright@noaa.gov)
-* **Data manager:** [Breanna Xiong](breanna.xiong@noaa.gov)
-* **Data manager:** [Bryce O'brien](bryce.obrien@noaa.gov)
+* **Region manager:** [Jennifer Wright](mailto:jennifer.wright@noaa.gov)
+* **Data manager:** [Breanna Xiong](mailto:breanna.xiong@noaa.gov)
+* **Data manager:** [Bryce O'brien](mailto:bryce.obrien@noaa.gov)
 
 #### **Repository Structure**
 -   **data**
