@@ -4,9 +4,9 @@ The Wind Team within NCCOS is appointed by BOEM to provide guidance on cables th
 Points of contact
 * **Region manager:** [Jennifer Wright](jennifer.wright@noaa.gov)
 * **Data manager:** [Breanna Xiong](breanna.xiong@noaa.gov)
+* **Data manager:** [Bryce O'brien](bryce.obrien@noaa.gov)
 
 Data sources
 
 Timeline
 
-Test2
