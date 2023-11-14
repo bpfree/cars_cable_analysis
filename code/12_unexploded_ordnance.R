@@ -5,17 +5,42 @@
 # Clear environment
 rm(list = ls())
 
+# Calculate start time of code (determine how long it takes to complete all code)
+start <- Sys.time()
+
+#####################################
+#####################################
+
 # Load packages
-pacman::p_load(dplyr,
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(docxtractr,
+               dplyr,
+               elsa,
+               fasterize,
+               fs,
                ggplot2,
+               janitor,
+               ncf,
+               paletteer,
+               pdftools,
                plyr,
+               purrr,
                raster,
+               RColorBrewer,
+               reshape2,
                rgdal,
+               rgeoda,
                rgeos,
+               rmapshaper,
+               rnaturalearth, # use devtools::install_github("ropenscilabs/rnaturalearth") if packages does not install properly
+               RSelenium,
                sf,
+               shadowr,
                sp,
                stringr,
-               tidyr)
+               terra, # is replacing the raster package
+               tidyr,
+               tidyverse)
 
 #####################################
 #####################################
@@ -107,3 +132,9 @@ sf::st_write(obj = unexploded_ordnance, dsn = analysis_gpkg, "unexploded_ordnanc
 sf::st_write(obj = unexploded_ordnance, dsn = uxo_gpkg, "unexploded_ordnance", append = F)
 sf::st_write(obj = unexploded_ordnance_points, dsn = uxo_gpkg, "unexploded_ordnance_point", append = F)
 sf::st_write(obj = unexploded_ordnance_areas, dsn = uxo_gpkg, "unexploded_ordnance_areas", append = F)
+
+#####################################
+#####################################
+
+# calculate end time and print time difference
+print(Sys.time() - start) # print how long it takes to calculate

@@ -5,18 +5,42 @@
 # Clear environment
 rm(list = ls())
 
+# Calculate start time of code (determine how long it takes to complete all code)
+start <- Sys.time()
+
+#####################################
+#####################################
+
 # Load packages
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(dplyr,
+pacman::p_load(docxtractr,
+               dplyr,
+               elsa,
                fasterize,
+               fs,
                ggplot2,
+               janitor,
+               ncf,
+               paletteer,
+               pdftools,
                plyr,
+               purrr,
                raster,
+               RColorBrewer,
+               reshape2,
                rgdal,
+               rgeoda,
                rgeos,
+               rmapshaper,
+               rnaturalearth, # use devtools::install_github("ropenscilabs/rnaturalearth") if packages does not install properly
+               RSelenium,
                sf,
+               shadowr,
                sp,
-               tidyr)
+               stringr,
+               terra, # is replacing the raster package
+               tidyr,
+               tidyverse)
 
 #####################################
 #####################################
@@ -30,6 +54,13 @@ raster_dir <- "data/d_raster_data"
 
 ### Output directory
 intermediate_dir <- "data/b_intermediate_data"
+
+#####################################
+#####################################
+
+# Set parameters
+## designate region name
+region <- "cars"
 
 #####################################
 #####################################
@@ -145,3 +176,9 @@ terra::writeRaster(pleasure_normalized, filename = file.path(raster_dir, "pleasu
 terra::writeRaster(tanker_normalized, filename = file.path(raster_dir, "tanker_ais2019_normalized.grd"), overwrite = T)
 terra::writeRaster(tugtow_normalized, filename = file.path(raster_dir, "tugtow_ais2019_normalized.grd"), overwrite = T)
 terra::writeRaster(other_normalized, filename = file.path(raster_dir, "other_ais2019_normalized.grd"), overwrite = T)
+
+#####################################
+#####################################
+
+# calculate end time and print time difference
+print(Sys.time() - start) # print how long it takes to calculate

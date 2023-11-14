@@ -5,20 +5,49 @@
 # Clear environment
 rm(list = ls())
 
+# Calculate start time of code (determine how long it takes to complete all code)
+start <- Sys.time()
+
+#####################################
+#####################################
+
 # Load packages
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(dplyr,
+pacman::p_load(docxtractr,
+               dplyr,
+               elsa,
                fasterize,
+               fs,
                ggplot2,
+               janitor,
+               ncf,
+               paletteer,
+               pdftools,
                plyr,
-               ncdf4, # can be used to read the bathymetry data (as they are an netCDF file [.nc])
+               purrr,
                raster,
+               RColorBrewer,
+               reshape2,
                rgdal,
+               rgeoda,
                rgeos,
+               rmapshaper,
+               rnaturalearth, # use devtools::install_github("ropenscilabs/rnaturalearth") if packages does not install properly
+               RSelenium,
                sf,
+               shadowr,
                sp,
-               terra,
-               tidyr)
+               stringr,
+               terra, # is replacing the raster package
+               tidyr,
+               tidyverse)
+
+#####################################
+
+# leastcostpath Documentation
+## Manual: https://cran.r-project.org/web/packages/leastcostpath/leastcostpath.pdf
+## User Guide: https://cran.r-project.org/web/packages/leastcostpath/vignettes/leastcostpath-1.html
+## GitHub: https://github.com/josephlewis/leastcostpath
 
 # load most recent version of "leastcostpath"
 library(devtools)
@@ -27,13 +56,6 @@ library(leastcostpath)
 
 # Inspect the versions of the packages
 sessionInfo()
-
-#####################################
-
-# leastcostpath Documentation
-## Manual: https://cran.r-project.org/web/packages/leastcostpath/leastcostpath.pdf
-## User Guide: https://cran.r-project.org/web/packages/leastcostpath/vignettes/leastcostpath-1.html
-## GitHub: https://github.com/josephlewis/leastcostpath
 
 #####################################
 #####################################
@@ -302,3 +324,9 @@ st_write(obj = lcp_lines_southwestern, dsn = least_cost_gpkg, "gom_lcp_lines_sou
 st_write(obj = start_ne, dsn = least_cost_gpkg, "wind_area_starting_point_ne", append = F)
 st_write(obj = start_sw, dsn = least_cost_gpkg, "wind_area_starting_point_sw", append = F)
 st_write(obj = start_points, dsn = least_cost_gpkg, "wind_area_starting_points", append = F)
+
+#####################################
+#####################################
+
+# calculate end time and print time difference
+print(Sys.time() - start) # print how long it takes to calculate

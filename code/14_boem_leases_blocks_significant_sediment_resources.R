@@ -5,17 +5,42 @@
 # Clear environment
 rm(list = ls())
 
+# Calculate start time of code (determine how long it takes to complete all code)
+start <- Sys.time()
+
+#####################################
+#####################################
+
 # Load packages
-pacman::p_load(dplyr,
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(docxtractr,
+               dplyr,
+               elsa,
+               fasterize,
+               fs,
                ggplot2,
+               janitor,
+               ncf,
+               paletteer,
+               pdftools,
                plyr,
+               purrr,
                raster,
+               RColorBrewer,
+               reshape2,
                rgdal,
+               rgeoda,
                rgeos,
+               rmapshaper,
+               rnaturalearth, # use devtools::install_github("ropenscilabs/rnaturalearth") if packages does not install properly
+               RSelenium,
                sf,
+               shadowr,
                sp,
                stringr,
-               tidyr)
+               terra, # is replacing the raster package
+               tidyr,
+               tidyverse)
 
 #####################################
 #####################################
@@ -31,6 +56,8 @@ analysis_gpkg <- "data/c_analysis_data/gom_cable_study.gpkg"
 
 #### Intermediate directory
 sediment_gpkg <- "data/b_intermediate_data/sediment.gpkg"
+
+#####################################
 
 # View layer names within geodatabase
 sf::st_layers(dsn = sediment_dir,
@@ -98,3 +125,9 @@ sf::st_write(obj = significant_sediment, dsn = analysis_gpkg, "boem_significant_
 
 ## Significant Sediments geopackage
 sf::st_write(obj = significant_sediment, dsn = sediment_gpkg, "boem_significant_sediments", append = F)
+
+#####################################
+#####################################
+
+# calculate end time and print time difference
+print(Sys.time() - start) # print how long it takes to calculate

@@ -5,24 +5,46 @@
 # Clear environment
 rm(list = ls())
 
-# Load packages
+# Calculate start time of code (determine how long it takes to complete all code)
+start <- Sys.time()
+
+#####################################
+#####################################
+
 ## Need to install a development version of terra to open the netCDF
 ### ***Note: May need restart R upon installing (stop running after first installation)
 install.packages('terra', repos='https://rspatial.r-universe.dev')
 
+# Load packages
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(dplyr,
+pacman::p_load(docxtractr,
+               dplyr,
+               elsa,
                fasterize,
+               fs,
                ggplot2,
+               janitor,
+               ncf,
+               paletteer,
+               pdftools,
                plyr,
-               ncdf4, # can be used to read the bathymetry data (as they are an netCDF file [.nc])
+               purrr,
                raster,
+               RColorBrewer,
+               reshape2,
                rgdal,
+               rgeoda,
                rgeos,
+               rmapshaper,
+               rnaturalearth, # use devtools::install_github("ropenscilabs/rnaturalearth") if packages does not install properly
+               RSelenium,
                sf,
+               shadowr,
                sp,
-               terra,
-               tidyr)
+               stringr,
+               terra, # is replacing the raster package
+               tidyr,
+               tidyverse)
 
 #####################################
 #####################################
@@ -39,6 +61,13 @@ raster_dir <- "data/d_raster_data"
 
 #### Intermediate directory
 intermediate_dir <- "data/b_intermediate_data"
+
+#####################################
+#####################################
+
+# Set parameters
+## designate region name
+region <- "cars"
 
 #####################################
 #####################################
@@ -161,7 +190,11 @@ writeRaster(tx_bath_mask_5070, filename = file.path(intermediate_dir, "tx_bath_m
 writeRaster(gom_slope, filename = file.path(intermediate_dir, "slope.grd"), overwrite = T)
 writeRaster(slope_5070, filename = file.path(intermediate_dir, "slope_5070.grd"), overwrite = T)
 
+#####################################
+#####################################
 
+# calculate end time and print time difference
+print(Sys.time() - start) # print how long it takes to calculate
 
 #####################################
 #####################################

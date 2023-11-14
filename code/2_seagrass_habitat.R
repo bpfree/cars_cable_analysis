@@ -95,7 +95,7 @@ sf::st_layers(dsn = seagrass_noaa_dir,
 
 # Set parameters
 ## designate region name
-region <- "oregon"
+region <- "cars"
 
 #####################################
 #####################################

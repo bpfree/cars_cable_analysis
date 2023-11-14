@@ -11,6 +11,10 @@ start <- Sys.time()
 #####################################
 #####################################
 
+## Need to install a development version of terra to open the netCDF
+### ***Note: May need restart R upon installing (stop running after first installation)
+install.packages('terra', repos='https://rspatial.r-universe.dev')
+
 # Load packages
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(docxtractr,
@@ -63,7 +67,7 @@ intermediate_dir <- "data/b_intermediate_data"
 
 # Set parameters
 ## designate region name
-region <- "oregon"
+region <- "cars"
 
 #####################################
 #####################################

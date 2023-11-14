@@ -5,20 +5,42 @@
 # Clear environment
 rm(list = ls())
 
+# Calculate start time of code (determine how long it takes to complete all code)
+start <- Sys.time()
+
+#####################################
+#####################################
+
 # Load packages
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(dplyr,
+pacman::p_load(docxtractr,
+               dplyr,
+               elsa,
                fasterize,
+               fs,
                ggplot2,
+               janitor,
+               ncf,
+               paletteer,
+               pdftools,
                plyr,
-               ncdf4, # can be used to read the bathymetry data (as they are an netCDF file [.nc])
+               purrr,
                raster,
+               RColorBrewer,
+               reshape2,
                rgdal,
+               rgeoda,
                rgeos,
+               rmapshaper,
+               rnaturalearth, # use devtools::install_github("ropenscilabs/rnaturalearth") if packages does not install properly
+               RSelenium,
                sf,
+               shadowr,
                sp,
-               terra,
-               tidyr)
+               stringr,
+               terra, # is replacing the raster package
+               tidyr,
+               tidyverse)
 
 #####################################
 #####################################
@@ -355,3 +377,9 @@ terra::writeRaster(cost_with_lease_areas, filename = file.path(least_cost_dir, "
 
 terra::writeRaster(cost_rm_constraints, filename = file.path(least_cost_dir, "cost_rm_constraints.grd"), overwrite = T)
 terra::writeRaster(cost_with_lease_areas_rm_constraints, filename = file.path(least_cost_dir, "cost_with_lease_areas_rm_constraints.grd"), overwrite = T)
+
+#####################################
+#####################################
+
+# calculate end time and print time difference
+print(Sys.time() - start) # print how long it takes to calculate

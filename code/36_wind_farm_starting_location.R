@@ -5,20 +5,42 @@
 # Clear environment
 rm(list = ls())
 
+# Calculate start time of code (determine how long it takes to complete all code)
+start <- Sys.time()
+
+#####################################
+#####################################
+
 # Load packages
-pacman::p_load(dplyr,
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(docxtractr,
+               dplyr,
+               elsa,
                fasterize,
+               fs,
                ggplot2,
-               lubridate,
+               janitor,
+               ncf,
+               paletteer,
+               pdftools,
                plyr,
+               purrr,
                raster,
+               RColorBrewer,
+               reshape2,
                rgdal,
+               rgeoda,
                rgeos,
                rmapshaper,
+               rnaturalearth, # use devtools::install_github("ropenscilabs/rnaturalearth") if packages does not install properly
+               RSelenium,
                sf,
+               shadowr,
                sp,
                stringr,
-               tidyr)
+               terra, # is replacing the raster package
+               tidyr,
+               tidyverse)
 
 #####################################
 #####################################
@@ -103,3 +125,9 @@ sf::st_write(obj = wind_starting_point, dsn = least_cost_gpkg, "starting_site", 
 ## Landing sites geopackage
 sf::st_write(obj = wind_starting_point, dsn = wind_start_gpkg, "starting_site", append = F)
 sf::st_write(obj = wind_area_points, dsn = wind_start_gpkg, "wind_area_points", append = F)
+
+#####################################
+#####################################
+
+# calculate end time and print time difference
+print(Sys.time() - start) # print how long it takes to calculate

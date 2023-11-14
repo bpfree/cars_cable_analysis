@@ -102,7 +102,7 @@ sf::st_layers(dsn = analysis_gpkg,
 
 # Set parameters
 ## designate region name
-region <- "oregon"
+region <- "cars"
 
 #####################################
 #####################################

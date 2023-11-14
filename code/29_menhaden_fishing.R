@@ -5,20 +5,42 @@
 # Clear environment
 rm(list = ls())
 
+# Calculate start time of code (determine how long it takes to complete all code)
+start <- Sys.time()
+
+#####################################
+#####################################
+
 # Load packages
-pacman::p_load(dplyr,
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(docxtractr,
+               dplyr,
+               elsa,
                fasterize,
+               fs,
                ggplot2,
-               lubridate,
+               janitor,
+               ncf,
+               paletteer,
+               pdftools,
                plyr,
+               purrr,
                raster,
+               RColorBrewer,
+               reshape2,
                rgdal,
+               rgeoda,
                rgeos,
                rmapshaper,
+               rnaturalearth, # use devtools::install_github("ropenscilabs/rnaturalearth") if packages does not install properly
+               RSelenium,
                sf,
+               shadowr,
                sp,
                stringr,
-               tidyr)
+               terra, # is replacing the raster package
+               tidyr,
+               tidyverse)
 
 #####################################
 #####################################
@@ -446,3 +468,9 @@ sf::st_write(obj = menhaden_2000_2019, dsn = menhaden_gpkg, "menhaden_fishing_20
 
 ## Raster data
 terra::writeRaster(menhaden_normalize, filename = file.path(raster_dir, "menhaden_2000_2019_normalize.grd"), overwrite = T)
+
+#####################################
+#####################################
+
+# calculate end time and print time difference
+print(Sys.time() - start) # print how long it takes to calculate

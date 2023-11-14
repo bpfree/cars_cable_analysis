@@ -120,7 +120,7 @@ land_function <- function(land_data){
 
 # Set parameters
 ## designate region name
-region <- "oregon"
+region <- "cars"
 
 #####################################
 #####################################
