@@ -22,9 +22,8 @@ The Wind Team within NCCOS is appointed by BOEM to provide guidance on cables th
 ***Note for PC users:*** The code was written on a Mac so to run the scripts replace "/" in the pathnames for directories with two "\\".
 
 #### **Data sources**
-
 ##### *Generic Data*
 
-| Layer      | Data Source | Data Name | Metadata                                                                                                                                                                                       | Notes                                                                                                                           |
+| Layer      | Data Source | Data Name | Metadata | Notes |
 |---------------|---------------|---------------|---------------|---------------|
-| Wind Areas | BOEM        | [Renewable Energy Leases and Planning Areas](https://www.boem.gov/renewable-energy/boem-renewable-energy-geodatabase) | [Metadata](https://metadata.boem.gov/geospatial/boem_renewable_lease_areas.xml), [Renewable Energy GIS Data](https://www.boem.gov/renewable-energy/mapping-and-data/renewable-energy-gis-data) | Data are also accessible for download on [MarineCadastre](https://marinecadastre.gov/) (under "Active Renewable Energy Leases") |
+| Wind Areas | BOEM | [Renewable Energy Leases and Planning Areas](https://www.boem.gov/renewable-energy/boem-renewable-energy-geodatabase) | [Metadata](https://metadata.boem.gov/geospatial/boem_renewable_lease_areas.xml), [Renewable Energy GIS Data](https://www.boem.gov/renewable-energy/mapping-and-data/renewable-energy-gis-data) | Data are also accessible for download on [MarineCadastre](https://marinecadastre.gov/) (under "Active Renewable Energy Leases") |
