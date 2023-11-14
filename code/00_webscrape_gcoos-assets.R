@@ -145,7 +145,6 @@ gcoos_regional_table <- rvest::read_html(regional) %>%
 
 #####################################
 
-
 ### Federal Assets (source: https://data.gcoos.org/inventory.php#tabs-3)
 #### ***Note: Copano Bay and Copano Bay East have same coordinates (two different sensors)
 #### ***Note: Middle Bay and Magnolia River have same coordinates -- seems like incorrect entry
