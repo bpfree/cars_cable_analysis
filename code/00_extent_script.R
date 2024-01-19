@@ -73,6 +73,9 @@ vector <- which(!is.na(sf::st_layers(dsn = virginia_gdb,
 length(sf::st_layers(dsn = virginia_gdb,
                      do_count = T)[[1]])
 
+## see length of vector data layers (162 data layers)
+length(vector)
+
 #####################################
 #####################################
 
