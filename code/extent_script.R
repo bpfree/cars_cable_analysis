@@ -1,20 +1,58 @@
-# clear environment
+######################################
+### 0. Spatial extent calculations ###
+######################################
+
+# Clear environment
 rm(list = ls())
 
-# calculate start time of code (determine how long it takes to complete all code)
+# Calculate start time of code (determine how long it takes to complete all code)
 start <- Sys.time()
 
-# load packages
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(dplyr,
-               sf,
-               terra)
+#####################################
+#####################################
 
-# designate geodatabase
+# Load packages
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(docxtractr,
+               dplyr,
+               elsa,
+               fasterize,
+               fs,
+               ggplot2,
+               janitor,
+               ncf,
+               paletteer,
+               pdftools,
+               plyr,
+               purrr,
+               raster,
+               RColorBrewer,
+               reshape2,
+               rgdal,
+               rgeoda,
+               rgeos,
+               rmapshaper,
+               rnaturalearth, # use devtools::install_github("ropenscilabs/rnaturalearth") if packages does not install properly
+               RSelenium,
+               sf,
+               shadowr,
+               sp,
+               stringr,
+               terra, # is replacing the raster package
+               tidyr,
+               tidyverse)
+
+#####################################
+#####################################
+
+# set directories
+## designate geodatabase
 virginia_gdb <- "data/VA_data_mining_20240104.gdb"
 
-# export table directory
+## export table directory
 export_dir <- "data"
+
+#####################################
 
 # inspect
 ## top 10 layer names
@@ -35,6 +73,10 @@ vector <- which(!is.na(sf::st_layers(dsn = virginia_gdb,
 length(sf::st_layers(dsn = virginia_gdb,
                      do_count = T)[[1]])
 
+#####################################
+#####################################
+
+# parameters
 # set the coordinate reference system that data should become (WGS84: https://epsg.io/4326)
 crs <- "EPSG:4326"
 
@@ -45,11 +87,14 @@ table <- data.frame(dataset = character(),
                     ymin = numeric(),
                     ymax = numeric())
 
+#####################################
+#####################################
+
 # loop through all layers
-for(i in 1:length(vector)){ # use length(sf::st_layers(dsn = virginia_gdb, do_count = T)[[1]]) if all data are vector data
+for(i in 1:(length(vector)-1)){ # use length(sf::st_layers(dsn = virginia_gdb, do_count = T)[[1]]) if all data are vector data
   start2 <- Sys.time()
   
-  # i <- 1
+  # i <- 162
   
   data_name <- sf::st_layers(dsn = virginia_gdb,
                              do_count = T)[[1]][i]
@@ -88,11 +133,20 @@ for(i in 1:length(vector)){ # use length(sf::st_layers(dsn = virginia_gdb, do_co
   print(paste("Iteration", i, "takes", Sys.time() - start2, units(Sys.time() - start2), "to complete creating and adding", data_name, "data to dataframe", sep = " "))
 }
 
+#####################################
+#####################################
+
 # make the row names be the row number
 rownames(table) <- 1:nrow(table)
 
+#####################################
+#####################################
+
 # export table as csv
 write.csv(x = table, file = paste(export_dir, "virginia_data_extent.csv", sep = "/"))
+
+#####################################
+#####################################
 
 # calculate end time and print time difference
 print(Sys.time() - start) # print how long it takes to calculate
