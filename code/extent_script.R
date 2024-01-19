@@ -25,9 +25,11 @@ sf::st_layers(dsn = virginia_gdb,
 sf::st_layers(dsn = virginia_gdb,
               do_count = T)
 
-## geometry type to identify which ones are rasters
-sf::st_layers(dsn = virginia_gdb,
-              do_count = T)$geomtype == "NA"
+## geometry type to identify which ones are vectors
+vector <- which(!is.na(sf::st_layers(dsn = virginia_gdb,
+                                     do_count = T)$geomtype == "NA"))
+
+### alternative to find rasters use which(is.na(sf::st_layers(dsn = virginia_gdb, do_count = T)$geomtype == "NA"))
 
 ## see length of data layers (185 data layers)
 length(sf::st_layers(dsn = virginia_gdb,
@@ -44,7 +46,7 @@ table <- data.frame(dataset = character(),
                     ymax = numeric())
 
 # loop through all layers
-for(i in 1:162){ # use length(sf::st_layers(dsn = virginia_gdb, do_count = T)[[1]]) if all data are vector data
+for(i in 1:length(vector)){ # use length(sf::st_layers(dsn = virginia_gdb, do_count = T)[[1]]) if all data are vector data
   start2 <- Sys.time()
   
   # i <- 1
