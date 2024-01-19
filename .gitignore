@@ -3,9 +3,13 @@
 .RData
 .Ruserdata
 
-# Ignore code
-## Miscellaneous code
+# ignore code
+## miscellaneous code
 code/x_miscellaneous_code.R
 
-# Tentative analysis
+# tentative analysis
 code/tentative_analysis
+
+# ignore data
+## Virginia geodatabase
+data/VA_data_mining_20230104.gdb
