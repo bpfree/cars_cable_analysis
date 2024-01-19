@@ -13,6 +13,9 @@ pacman::p_load(dplyr,
 # designate geodatabase
 virginia_gdb <- "data/VA_data_mining_20240104.gdb"
 
+# export table directory
+export_dir <- "data"
+
 # inspect
 ## top 10 layer names
 sf::st_layers(dsn = virginia_gdb,
@@ -87,7 +90,7 @@ for(i in 1:162){ # use length(sf::st_layers(dsn = virginia_gdb, do_count = T)[[1
 rownames(table) <- 1:nrow(table)
 
 # export table as csv
-write.csv(x = table, file = "virginia_data_extent.csv")
+write.csv(x = table, file = paste(export_dir, "virginia_data_extent.csv", sep = "/"))
 
 # calculate end time and print time difference
 print(Sys.time() - start) # print how long it takes to calculate
