@@ -96,16 +96,20 @@ table <- data.frame(dataset = character(),
 ### Warning, skip 381, 386, 514, 518 -- AIS data take too long to run
 
 # loop through all layers
-for(i in 513:520){ # use length(sf::st_layers(dsn = carolinas_gdb, do_count = T)[[1]]) if all data are vector data
+for(i in 1:520){ # use length(sf::st_layers(dsn = carolinas_gdb, do_count = T)[[1]]) if all data are vector data
   start2 <- Sys.time()
   
   # i <- 1
   
+  # skip analysis when i is equal to 381, 386, 514, or 518
   if((i == 381 || i == 386 || i == 514 || i == 518)){
+    # print message saying why skipped
     print(paste("Skip interation", i, "for it cannot get completed due to either: (1) takes too much memory or (2) has no spatial extent"), sep = "/")
+    # go to next iteration
     next
   }
   
+  # run analysis when i is not equal to 381, 386, 514, or 518
   if(!(i == 381 || i == 386 || i == 514 || i == 518)){
     data_name <- sf::st_layers(dsn = carolinas_gdb,
                                do_count = T)[[1]][i]
