@@ -13,3 +13,4 @@ code/tentative_analysis
 # ignore data
 ## Virginia geodatabase
 data/VA_data_mining_20240104.gdb
+data/Carolinas_20240117.gdb
