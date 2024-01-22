@@ -60,6 +60,10 @@ sf::st_layers(dsn = carolinas_gdb,
               do_count = T)[[1]][1:10]
 
 ## all layers
+### ***Note: if not all rows are printed (and you see something like: 
+###          "reached 'max' / getOption("max.print") -- omitted 495 rows"
+###          then type into console options(max.print = 2850). This should
+###          print out all results 575 (rows) * 5 (fields) = 2875
 sf::st_layers(dsn = carolinas_gdb,
               do_count = T)
 
