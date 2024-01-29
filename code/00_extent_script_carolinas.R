@@ -68,7 +68,7 @@ sf::st_layers(dsn = carolinas_gdb,
               do_count = T)
 
 ## geometry type to identify which ones are vectors
-vector <- which(!is.na(sf::st_layers(dsn = carolinas_gdb,
+carolinas <- which(!is.na(sf::st_layers(dsn = carolinas_gdb,
                                      do_count = T)$geomtype == "NA"))
 
 ### alternative to find rasters use which(is.na(sf::st_layers(dsn = carolinas_gdb, do_count = T)$geomtype == "NA"))
@@ -78,7 +78,7 @@ length(sf::st_layers(dsn = carolinas_gdb,
                      do_count = T)[[1]])
 
 ## see length of vector data layers (521 data layers)
-length(vector)
+length(carolinas)
 
 #####################################
 #####################################
@@ -149,7 +149,7 @@ for(i in 1:520){ # use length(sf::st_layers(dsn = carolinas_gdb, do_count = T)[[
     rm(data_set)
     
     # print how long it takes to calculate
-    print(paste("Iteration", i, "of", length(vector), "takes", Sys.time() - start2, units(Sys.time() - start2), "to complete creating and adding", data_name, "data to dataframe", sep = " "))
+    print(paste("Iteration", i, "of", length(carolinas), "takes", Sys.time() - start2, units(Sys.time() - start2), "to complete creating and adding", data_name, "data to dataframe", sep = " "))
   }
 }
 
